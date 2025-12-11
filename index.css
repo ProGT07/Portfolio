@@ -611,3 +611,67 @@ body:not(.user-is-tabbing) a:focus {
         padding: var(--gutter-medium) 0;
     } 
 }
+
+/* --- ADICIONE OU SUBSTITUA NO SEU CSS --- */
+
+/* Correção do tamanho da foto de perfil (aprox 4x menor visualmente) */
+.about__photo {
+    width: 15rem; /* Tamanho fixo menor */
+    height: 15rem;
+    border-radius: 50%; /* Deixa redonda, mais moderno */
+    object-fit: cover;
+    border: 3px solid var(--pink);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.5);
+}
+
+.about__photo-container {
+    display: flex;
+    justify-content: center; /* Centraliza a foto */
+    margin-bottom: var(--gutter-normal);
+}
+
+/* Melhoria para exibir vídeos (Iframes do Youtube) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #333;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Galeria de imagens simples para os projetos */
+.project-gallery {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
+.project-thumb {
+    height: 60px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.project-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Disclaimer discreto para privacidade */
+.privacy-notice {
+    font-size: 1.2rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
