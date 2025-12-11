@@ -99,12 +99,6 @@ body {
     }
 }
 
-@media(max-width: 600px) {
-    .row {
-        padding: 0 var(--gutter-small);
-    }
-}
-
 section {
     padding: var(--gutter-huge) 0;
     border-bottom: var(--border-light);
@@ -175,12 +169,6 @@ h3 {
 
 p {
     margin: var(--gutter-small-1) 0;
-}
-
-@media(max-width: 900px) {
-    p { 
-        max-width: var(--container-small-width);
-    }
 }
 
 /* --------------------------------------- */
@@ -437,76 +425,95 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 /* --------------------------------------- */
-/* ----- Work ----- */
+/* ----- Work (PROJECTS) ----- */
 /* --------------------------------------- */
 
+/* Layout alterado para COLUNA para permitir vídeo grande */
 .work__box {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Texto em cima, vídeo embaixo */
+    margin-bottom: var(--gutter-huge);
+    border-bottom: 1px solid #333;
+    padding-bottom: var(--gutter-medium);
 }
 
-@media(max-width: 900px) {
-    .work__box {
-        align-items: initial;
-        flex-direction: column-reverse;
-    }
-}
-
-.work__box:not(:last-child) {
-    margin-bottom: 25rem;
-}
-
-@media(max-width: 500px) {
-    .work__box:not(:last-child) {
-        margin-bottom: 20rem;
-    }
-}
-
-.work__links {
-    display: flex;
-    align-items: center;
+.work__box:last-child {
+    border-bottom: none;
 }
 
 .work__text {
-    flex: 0 0 30%;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: var(--gutter-medium);
 }
 
 .work__list {
-    /* list-style-type: square; */
     list-style-position: inside;
     margin-bottom: var(--gutter-normal);
+    color: var(--white-1);
 }
 
-.work__code {
-    display: block;
-    height: 3rem;
-    margin-left: var(--gutter-normal);
-    transition: all .3s;
-}
-
-.work__code:hover {
-    transform: scale(1.2);
-}
-
+/* Container que segura o vídeo e galeria */
 .work__image-box {
-    margin-bottom: var(--gutter-normal);
+    width: 100%; 
+    margin: 0;
 }
 
-@media(min-width: 901px) {
-    .work__image-box {
-        flex: 1;
-        margin: 0 0 0 10rem;
-    }
+/* Container do Vídeo - Proporção 16:9 - GIGANTE */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #444;
+    background-color: #000;
+    box-shadow: 0 2rem 5rem rgba(0,0,0,0.6);
 }
 
-@media(max-width: 900px) {
-    .work__code {
-        height: 4rem;
-    }
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Galeria de imagens (Thumbnails) - PEQUENAS */
+.project-gallery {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+/* Estilo específico para diminuir as imagens (3x menor) */
+.project-thumb {
+    height: 14rem; /* Altura fixa pequena (aprox 140px) */
+    width: auto;
+    border-radius: 6px;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.project-thumb:hover {
+    transform: scale(1.05);
+    border-color: var(--pink);
+}
+
+.privacy-notice {
+    font-size: 1.4rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 1rem;
 }
 
 /* --------------------------------------- */
-/* ----- Clients ----- */
+/* ----- Clients (Technologies) ----- */
 /* --------------------------------------- */
 
 .client__logos {
@@ -515,19 +522,10 @@ body:not(.user-is-tabbing) a:focus {
     filter: invert(100%) grayscale(100%) opacity(.8);
 }
 
-.client__logo {
-    height: 6.5rem;
-    max-width: 18rem;
-}
-
 @media(max-width: 1240px) {
     .client__logos {
         overflow-x: scroll;
         padding: var(--gutter-normal);
-    }
-
-    .client__logo:not(:last-of-type) {
-        margin-right: var(--gutter-medium);
     }
 }
 
@@ -539,28 +537,42 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    justify-content: space-between;
 }
 
 @media(max-width: 900px) {
     .about__content {
         flex-direction: column-reverse;
-        align-items: initial;
+        align-items: center;
+        text-align: center;
     }
 }
 
 .about__photo-container {
     margin-bottom: var(--gutter-normal);
+    display: flex;
+    justify-content: center;
 }
 
 @media(min-width: 901px) {
     .about__text {
-        flex: 0 0 35%;
+        flex: 0 0 60%;
     }
     
     .about__photo-container {
         flex: 1;
-        margin: 0 var(--gutter-huge) 0 0;
+        margin: 0;
     }
+}
+
+/* Foto de Perfil - Reduzida */
+.about__photo {
+    width: 14rem;   /* Tamanho reduzido conforme pedido */
+    height: 14rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--pink);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.5);
 }
 
 /* --------------------------------------- */
@@ -610,68 +622,4 @@ body:not(.user-is-tabbing) a:focus {
     .footer {
         padding: var(--gutter-medium) 0;
     } 
-}
-
-/* --- ADICIONE OU SUBSTITUA NO SEU CSS --- */
-
-/* Correção do tamanho da foto de perfil (aprox 4x menor visualmente) */
-.about__photo {
-    width: 15rem; /* Tamanho fixo menor */
-    height: 15rem;
-    border-radius: 50%; /* Deixa redonda, mais moderno */
-    object-fit: cover;
-    border: 3px solid var(--pink);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,0.5);
-}
-
-.about__photo-container {
-    display: flex;
-    justify-content: center; /* Centraliza a foto */
-    margin-bottom: var(--gutter-normal);
-}
-
-/* Melhoria para exibir vídeos (Iframes do Youtube) */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* Proporção 16:9 */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    border: 1px solid #333;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Galeria de imagens simples para os projetos */
-.project-gallery {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    overflow-x: auto;
-}
-
-.project-thumb {
-    height: 60px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.project-thumb:hover {
-    transform: scale(1.1);
-}
-
-/* Disclaimer discreto para privacidade */
-.privacy-notice {
-    font-size: 1.2rem;
-    color: #888;
-    font-style: italic;
-    margin-top: 0.5rem;
 }
