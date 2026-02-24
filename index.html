@@ -131,7 +131,40 @@
             </div>
           </div>
           
+          
         </div>
+        <div class="work__box">
+            <div class="work__text">
+              <h3>Edge IIoT: Store-and-Forward Architecture</h3>
+              <p>
+                A conceptual Python architecture built to handle network drops in harsh environments, such as underground mining.
+              </p>
+              <p>
+                <strong>The Concept:</strong> This edge script uses the <code>pycomm3</code> library to poll data directly from Allen-Bradley PLCs. It attempts to push telemetry to a remote SQL database. If the network connection drops, it automatically buffers the data locally into a CSV file to ensure zero data loss, demonstrating a robust Store-and-Forward edge strategy.
+              </p>
+              <ul class="work__list">
+                <li>Python & pycomm3 (CIP Protocol)</li>
+                <li>Edge Computing & Fault Tolerance</li>
+                <li>Data Buffering (Store-and-Forward)</li>
+              </ul>
+              
+              <div style="margin-top: 3rem;">
+                <a href="https://github.com/ProGT07/Apex_IIoT_Store_Forward_Concept" target="_blank" class="btn btn--pink">
+                  View Code on GitHub
+                </a>
+              </div>
+            </div>
+
+            <div class="work__image-box">
+              <div class="video-container" style="background-color: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #333;">
+                <img src="./images/github.svg" alt="GitHub Repository" style="width: 8rem; margin-bottom: 2rem; filter: invert(100%) opacity(0.8);">
+                <p style="color: var(--pink); font-family: monospace; font-size: 1.6rem; text-align: center; padding: 0 2rem;">
+                  def save_to_local_csv(timestamp, tag, value):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;"""Store-and-Forward logic"""
+                </p>
+              </div>
+            </div>
+          </div>
       </div>
     </section>
 
@@ -139,6 +172,7 @@
       <div class="row">
         <h2>Technical Expertise</h2>
         <div class="client__logos" style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; text-align: center;">
+            <span style="font-size: 1.6rem; font-weight: bold; color: #777; border: 1px solid #333; padding: 10px; border-radius: 5px;">IIoT & Edge Computing</span>
             <span style="font-size: 1.6rem; font-weight: bold; color: #777; border: 1px solid #333; padding: 10px; border-radius: 5px;">Siemens TIA Portal</span>
             <span style="font-size: 1.6rem; font-weight: bold; color: #777; border: 1px solid #333; padding: 10px; border-radius: 5px;">Allen-Bradley Studio 5000</span>
             <span style="font-size: 1.6rem; font-weight: bold; color: #777; border: 1px solid #333; padding: 10px; border-radius: 5px;">Schneider Machine Expert</span>
