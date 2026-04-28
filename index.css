@@ -206,6 +206,14 @@ h3 {
   height: 100%;
 }
 
+.video-container img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .video-fallback {
   margin-top: 1rem;
   font-size: 1.4rem;
