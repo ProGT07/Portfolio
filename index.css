@@ -247,6 +247,51 @@ h3 {
   border-radius: 0.5rem;
 }
 
+.repo-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 32rem;
+  padding: 2.4rem;
+  text-align: center;
+  border: 1px solid #2f2f30;
+  background: linear-gradient(145deg, #111 0%, #1a1a27 100%);
+}
+
+.repo-preview p {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #b7b7b8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.repo-preview h4 {
+  margin: 0.3rem 0;
+  font-size: 2.4rem;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  color: var(--color-white);
+}
+
+.repo-preview span {
+  font-size: 1.5rem;
+  color: #a8a8aa;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.project-actions .btn {
+  padding: 1rem 2.2rem;
+}
+
 .contact__info p {
   max-width: 72rem;
 }
